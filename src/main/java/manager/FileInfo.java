@@ -21,8 +21,8 @@ public class FileInfo {
     public FileInfo(File file) {
         this.name = file.getName();
         this.type = file.isFile() ? Type.FILE : Type.DIRECTORY;
-        this.size = file.length();
-        this.last = LocalDateTime.ofInstant(Instant.ofEpochMilli(file.lastModified()), ZoneOffset.ofHours(0));
+        this.size = file.isFile() ? file.length() : -1L;
+        this.last = LocalDateTime.ofInstant(Instant.ofEpochMilli(file.lastModified()), ZoneOffset.ofHours(3));
     }
 
     @Getter
